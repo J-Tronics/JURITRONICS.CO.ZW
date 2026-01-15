@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="store-style.css">
+  <title>JURITRONICS Store</title>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="IMG/LG/juritronics.png" alt="logo">
+      <div>JURI<span class="accent">TRONICS</span></div>
+    </div>
+    <div style="display:flex;gap:10px">
+      <a href="index.html" class="btn">← Landing</a>
+      <a href="https://wa.me/263777772486" target="_blank" class="btn green">WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h1>Store</h1>
+  <p class="muted">Fast, reliable electronics components</p>
+
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="products"></div>
+</main>
+
+<div class="cart-btn" id="openCart">🛒<span class="badge" id="cartCount">0</span></div>
+
+<div class="modal" id="cartModal">
+  <div class="modal-content">
+    <h3>Your Cart</h3>
+    <div id="cartItems"></div>
+    <h4 id="cartTotal"></h4>
+    <button class="btn green" id="checkout">Checkout on WhatsApp</button>
+    <button class="btn" onclick="closeCart()">Close</button>
+  </div>
+</div>
+
+<footer>
+  <div class="carousel">
+    <div class="thumb">Project 01</div>
+    <div class="thumb">Project 02</div>
+    <div class="thumb">3D Print</div>
+    <div class="thumb">Kit Build</div>
+    <div class="thumb">Prototype</div>
+  </div>
+</footer>
+
+<script>
+/* ---------- LOAD PRODUCTS (your list unchanged) ---------- */
+const products = [
+{ id:1,image_ext:"jpg",name:"DHT11 Sensor",price:2,cat:"Sensors" },
+{ id:2,image_ext:"jpg",name:"Arduino IR Sensor",price:1,cat:"Sensors" },
+{ id:3,image_ext:"png",name:"LDR Sensor",price:1,cat:"Sensors" },
+{ id:4,image_ext:"png",name:"Joystick Module",price:4,cat:"Sensors" },
+{ id:5,image_ext:"jpg",name:"Metal Touch Sensor",price:2,cat:"Sensors" },
+{ id:6,image_ext:"jpg",name:"Sound Sensor",price:3,cat:"Sensors" },
+{ id:7,image_ext:"jpg",name:"Laser Sensor",price:3,cat:"Sensors" },
+{ id:8,image_ext:"jpg",name:"Passive Buzzer",price:1,cat:"Actuators" },
+{ id:9,image_ext:"jpg",name:"Optical Switch",price:2,cat:"Sensors" },
+{ id:10,image_ext:"jpg",name:"Vibration Sensor",price:1,cat:"Sensors" },
+{ id:11,image_ext:"png",name:"PIR Motion Sensor",price:4,cat:"Sensors" },
+{ id:12,image_ext:"jpg",name:"Hall Effect Sensor",price:1,cat:"Sensors" },
+{ id:13,image_ext:"png",name:"Ultrasonic Sensor",price:3,cat:"Sensors" },
+{ id:14,image_ext:"jpg",name:"1-Channel Relay",price:2.5,cat:"Actuators" },
+{ id:15,image_ext:"jpg",name:"Potentiometer",price:0.6,cat:"Sensors" },
+{ id:16,image_ext:"jpg",name:"KY-013 Temp Sensor",price:2,cat:"Sensors" },
+{ id:17,image_ext:"jpg",name:"DS18B20 Temp",price:2,cat:"Sensors" },
+{ id:18,image_ext:"jpg",name:"KY-028 Temp",price:2,cat:"Sensors" },
+{ id:19,image_ext:"webp",name:"DS18B20 Waterproof",price:4,cat:"Sensors" },
+{ id:20,image_ext:"webp",name:"Rain Sensor",price:4,cat:"Sensors" },
+{ id:21,image_ext:"JPG",name:"Irrigation Kit",price:10,cat:"Starter Kits" },
+{ id:22,image_ext:"png",name:"ESP32 CAM",price:14,cat:"Microcontrollers" },
+{ id:23,image_ext:"png",name:"Arduino Uno R3",price:6,cat:"Microcontrollers" },
+{ id:24,image_ext:"JPG",name:"ESP32 Starter Kit",price:23,cat:"Starter Kits" },
+{ id:25,image_ext:"JPG",name:"Breadboard Kit",price:10,cat:"Starter Kits" },
+{ id:26,image_ext:"JPG",name:"ESP32 Dev Board",price:7,cat:"Microcontrollers" },
+{ id:27,image_ext:"JPG",name:"Dupont Wires",price:1,cat:"Starter Kits" },
+{ id:28,image_ext:"JPG",name:"2-Channel Relay",price:3.5,cat:"Actuators" },
+{ id:29,image_ext:"JPG",name:"LCD 1602",price:4,cat:"Outputs" },
+{ id:30,image_ext:"jfif",name:"LCD 2004",price:7,cat:"Outputs" },
+{ id:31,image_ext:"jfif",name:"Stepper Motor",price:3,cat:"Actuators" },
+{ id:32,image_ext:"jfif",name:"RFID RC522",price:2,cat:"Sensors" },
+{ id:33,image_ext:"jfif",name:"IR Obstacle Sensor",price:2,cat:"Sensors" },
+{ id:34,image_ext:"jfif",name:"Photoelectric Sensor",price:2,cat:"Sensors" },
+{ id:35,image_ext:"jfif",name:"16-Channel Relay",price:10,cat:"Actuators" },
+{ id:36,image_ext:"jfif",name:"Breadboard 830",price:2,cat:"Starter Kits" },
+{ id:37,image_ext:"jfif",name:"GY-91 MPU",price:8,cat:"Sensors" },
+{ id:38,image_ext:"jfif",name:"Flow Sensor",price:7,cat:"Sensors" },
+{ id:39,image_ext:"jfif",name:"Servo Motor",price:3,cat:"Actuators" },
+{ id:40,image_ext:"jfif",name:"Active Buzzer",price:1,cat:"Actuators" },
+{ id:41,image_ext:"jfif",name:"Line Follower",price:2,cat:"Sensors" },
+{ id:42,image_ext:"jfif",name:"GY-362 Accel",price:5,cat:"Sensors" },
+{ id:43,image_ext:"jfif",name:"Pulse Sensor",price:4,cat:"Sensors" },
+{ id:44,image_ext:"jfif",name:"Matrix Keypad",price:1,cat:"Inputs" },
+{ id:45,image_ext:"jfif",name:"ESP32 Expansion",price:3,cat:"Microcontrollers" },
+{ id:46,image_ext:"jfif",name:"SIM800L",price:8,cat:"Microcontrollers" },
+{ id:47,image_ext:"jfif",name:"Soil Moisture",price:4,cat:"Sensors" },
+{ id:48,image_ext:"jfif",name:"Water Level Sensor",price:4,cat:"Sensors" },
+{ id:49,image_ext:"jfif",name:"TTP223 Touch",price:1,cat:"Inputs" },
+{ id:50,image_ext:"jfif",name:"PCB Board",price:2,cat:"Starter Kits" },
+{ id:51,image_ext:"jfif",name:"MQ-135 Gas",price:4,cat:"Sensors" },
+{ id:52,image_ext:"jfif",name:"KY-037 Mic",price:3,cat:"Sensors" },
+{ id:53,image_ext:"jfif",name:"5V Fan",price:2,cat:"Actuators" }
+];
+
+/* ---------- CART WITH MEMORY ---------- */
+let cart = JSON.parse(localStorage.getItem("juritronics_cart") || "{}");
+
+const productGrid = document.getElementById("products");
+const filtersDiv = document.getElementById("filters");
+const cartModal = document.getElementById("cartModal");
+
+/* ---------- FILTERS ---------- */
+const categories = ["All","Starter Kits","Sensors","Actuators","Microcontrollers"];
+
+categories.forEach(c=>{
+  const b=document.createElement("div");
+  b.className="filter"+(c==="All"?" active":"");
+  b.textContent=c;
+  b.onclick=()=>filter(c,b);
+  filtersDiv.appendChild(b);
+});
+
+function render(items){
+  productGrid.innerHTML="";
+  items.forEach(p=>{
+    const d=document.createElement("div");
+    d.className="card";
+    d.innerHTML=`
+      <img src="IMG/${p.id}.${p.image_ext}">
+      <h4>${p.name}</h4>
+      <div class="price">$${p.price}</div>
+      <button class="btn add-btn" onclick="add(${p.id}, this)">Add to Cart</button>
+    `;
+    productGrid.appendChild(d);
+  });
+}
+
+function filter(cat,btn){
+  document.querySelectorAll(".filter").forEach(f=>f.classList.remove("active"));
+  btn.classList.add("active");
+  render(cat==="All"?products:products.filter(p=>p.cat===cat));
+}
+
+/* ---------- CART LOGIC ---------- */
+function saveCart(){
+  localStorage.setItem("juritronics_cart", JSON.stringify(cart));
+}
+
+function add(id, btn){
+  cart[id] = (cart[id] || 0) + 1;
+  saveCart();
+  updateCart();
+  btn.classList.add("added");
+  setTimeout(()=>btn.classList.remove("added"), 600);
+}
+
+function updateCart(){
+  const count = Object.values(cart).reduce((a,b)=>a+b,0);
+  document.getElementById("cartCount").textContent = count;
+}
+
+/* ---------- OPEN / CLOSE MODAL FIXED ---------- */
+function openCart(){
+  cartModal.style.display="flex";
+  renderCart();
+}
+
+function closeCart(){
+  cartModal.style.display="none";
+}
+
+document.getElementById("openCart").onclick = openCart;
+
+/* Close when clicking outside */
+cartModal.onclick = function(e){
+  if(e.target === cartModal) closeCart();
+};
+
+/* ---------- RENDER CART WITH + - ❌ ---------- */
+function renderCart(){
+  const div = document.getElementById("cartItems");
+  div.innerHTML="";
+  let total=0;
+
+  Object.keys(cart).forEach(id=>{
+    const p = products.find(x=>x.id==id);
+    const qty = cart[id];
+    const lineTotal = p.price * qty;
+    total += lineTotal;
+
+    div.innerHTML += `
+      <div class="cart-item">
+        <span>${p.name}</span>
+
+        <div class="qty">
+          <button onclick="decrease(${id})">➖</button>
+          <strong>${qty}</strong>
+          <button onclick="increase(${id})">➕</button>
+          <button onclick="removeItem(${id})">❌</button>
+        </div>
+
+        <span>$${lineTotal.toFixed(2)}</span>
+      </div>
+    `;
+  });
+
+  document.getElementById("cartTotal").textContent =
+    "Total: $" + total.toFixed(2);
+}
+
+/* ---------- QUANTITY CONTROLS ---------- */
+function increase(id){
+  cart[id]++;
+  saveCart();
+  updateCart();
+  renderCart();
+}
+
+function decrease(id){
+  if(cart[id] > 1){
+    cart[id]--;
+  } else {
+    delete cart[id];
+  }
+  saveCart();
+  updateCart();
+  renderCart();
+}
+
+function removeItem(id){
+  delete cart[id];
+  saveCart();
+  updateCart();
+  renderCart();
+}
+
+/* ---------- BETTER WHATSAPP RECEIPT ---------- */
+checkout.onclick = () => {
+  let msg = "Hello Juritronics,\nHere is my order:\n\n";
+  let total = 0;
+
+  Object.keys(cart).forEach(id=>{
+    const p = products.find(x=>x.id==id);
+    const qty = cart[id];
+    const line = p.price * qty;
+    total += line;
+
+    msg += `• ${p.name}\n  Qty: ${qty}\n  Price: $${p.price} each\n  Subtotal: $${line.toFixed(2)}\n\n`;
+  });
+
+  msg += `TOTAL: $${total.toFixed(2)}\n\nPlease confirm availability.`;
+
+  window.open(
+    "https://wa.me/263777772486?text=" + encodeURIComponent(msg)
+  );
+};
+
+/* ---------- INIT ---------- */
+render(products);
+updateCart();
+</script>
+
+
+</body>
+</html>
