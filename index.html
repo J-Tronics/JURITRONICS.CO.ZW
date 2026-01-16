@@ -3,96 +3,201 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JURITRONICS | Smart Electronics & Prototypes</title>
- <link rel="stylesheet" href="style.css">
+
+  <!-- PRIMARY SEO TITLE -->
+  <title>JURITRONICS | Electronics Components, Speed Projects & 3D Printing in Zimbabwe</title>
+
+  <!-- META DESCRIPTION (VERY IMPORTANT FOR GOOGLE) -->
+  <meta name="description" content="JURITRONICS supplies cheap, reliable electronics components in Zimbabwe, ready-to-build Speed Projects, Arduino kits, sensors, and fast 3D printing services with nationwide delivery." />
+
+  <!-- KEYWORDS (LESS IMPORTANT TODAY BUT STILL HELPFUL) -->
+  <meta name="keywords" content="electronics components Zimbabwe, Arduino Zimbabwe, speed projects, 3D printing Harare, sensors Zimbabwe, student projects, prototypes Zimbabwe" />
+
+  <!-- AUTHOR -->
+  <meta name="author" content="JURITRONICS" />
+
+  <!-- OPEN GRAPH (FOR WHATSAPP, FACEBOOK, LINKEDIN PREVIEWS) -->
+  <meta property="og:title" content="JURITRONICS | Build Faster, Spend Less" />
+  <meta property="og:description" content="Affordable electronics components, Speed Projects, and fast 3D printing delivered anywhere in Zimbabwe." />
+  <meta property="og:image" content="IMG/LG/juritronics.png" />
+  <meta property="og:url" content="https://juritronics.co.zw/" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 <header>
   <div class="nav">
     <div style="display:flex;align-items:center;gap:10px;">
-      <img style="width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:#ffffff;font-size:10px;color:var(--muted);" src="IMG/LG/juritronics.png" alt="" srcset="">
+      <img style="width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:#ffffff;font-size:10px;color:var(--muted);"
+           src="IMG/LG/juritronics.png"
+           alt="Juritronics electronics components and speed projects Zimbabwe">
       <div class="logo">JURI<span class="accent">TRONICS</span></div>
     </div>
-    <a class="btn btn-whatsapp" href="https://wa.me/263777772486?text=Hi%20Juritronics,%20I%20want%20to%20learn%20more" target="_blank"><span>💬</span> Chat on WhatsApp</a>
+    <a class="btn btn-whatsapp"
+       href="https://wa.me/263777772486?text=Hi%20Juritronics,%20I%20want%20to%20learn%20more"
+       target="_blank">
+       <span>💬</span> Chat on WhatsApp
+    </a>
   </div>
 </header>
 
+<!-- HERO SECTION -->
 <section class="hero">
   <div>
-    <h1>Speed Projects & Cheap, Reliable Components</h1>
-    <p>At <strong>JURITRONICS</strong>, we protect your pocket before your project. We help you avoid hidden and unexpected costs — like burnt components, wrong parts, or repeated rebuilds — by giving you the right parts, the right circuits, and the right guidance from day one. We supply some of the <strong>cheapest reliable components in Zimbabwe</strong>, pair them with clear Speed Projects, and back this up with <strong>fast, affordable 3D printing</strong> for enclosures and structures. We also deliver to you wherever you are — distance is not a barrier. In short: you spend less, build faster, stress less, and walk away with real skills and a working system you can be proud of.</p>
+    <h1>
+      Speed Projects & Cheap Reliable Electronics Components in Zimbabwe
+    </h1>
+
+    <p>
+      <strong>JURITRONICS</strong> is a Zimbabwe-based electronics solutions provider helping students,
+      innovators, and startups build working systems faster and cheaper.
+      We prevent costly mistakes like burnt components, wrong parts, and repeated rebuilds by supplying
+      the right parts, clear circuits, and tested guidance from day one.
+    </p>
+
+    <p>
+      We provide <strong>affordable Arduino boards, sensors, modules, starter kits</strong>,
+      practical <strong>Speed Projects</strong>, and <strong>fast 3D printing services</strong>
+      for enclosures, mounts, and prototypes. We deliver nationwide across Zimbabwe.
+    </p>
+
     <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
-      <a class="btn btn-soft" href="#services"><span>🔍</span> Explore Services</a>
-      <a class="btn btn-whatsapp" href="https://wa.me/263777772486?text=Hi,%20I%20have%20a%20project%20idea" target="_blank"><span>💬</span> Request a Project</a>
+      <a class="btn btn-soft" href="#services">
+        <span>🔍</span> Explore Services
+      </a>
+      <a class="btn btn-whatsapp"
+         href="https://wa.me/263777772486?text=Hi,%20I%20have%20a%20project%20idea"
+         target="_blank">
+         <span>💬</span> Request a Project
+      </a>
     </div>
   </div>
-  <div class="glow-card" style="display: flex;place-items: center;align-items: center;justify-content: center;">
-    <img style="width:100%;" src="IMG/LG/BURNNER.jpg" alt="" srcset="">
+
+  <div class="glow-card"
+       style="display:flex;align-items:center;justify-content:center;">
+    <img style="width:100%;"
+         src="IMG/LG/integrated-circuit-441294_1280.jpg"
+         alt="Integrated circuit electronics for student projects in Zimbabwe">
   </div>
 </section>
 
+<!-- SERVICES SECTION -->
 <section id="services" class="services">
-  <h2>What We Do</h2>
+  <h2>Electronics Services in Zimbabwe</h2>
+
   <div class="grid-3">
-    <div class="glow-card">
-      <h3>Components Store</h3>
-      <p>Arduino boards, sensors, modules and accessories sourced reliably for you.</p>
-      <a href="juritronics_store.html" style="color:var(--primary);">View catalogue →</a>
-    </div>
-    <div class="glow-card">
-      <h3>Speed Projects</h3>
-      <p>Ready-to-build projects with circuits, source code, instructions and tested parts.</p>
-      <a href="#" style="color:var(--primary);">View Projects →</a>
-    </div>
-    <div class="glow-card">
-      <h3>Prototype Development</h3>
-      <p>We design, build and test custom electronics for students and startups.</p>
-      <a href="https://wa.me/263777772486?text=I%20need%20a%20custom%20prototype" target="_blank" style="color:var(--primary);">Get a Quote →</a>
-    </div>
+
+    <article class="glow-card" onclick="window.open('store.html')">
+      <h3>Electronics Components Store</h3>
+      <p>
+        Buy Arduino boards, sensors, relays, motors, displays, modules, and starter kits
+        sourced reliably and delivered anywhere in Zimbabwe.
+      </p>
+      <a href="store.html" style="color:var(--primary);">
+        View components catalogue →
+      </a>
+    </article>
+
+    <article class="glow-card">
+      <h3>Speed Electronics Projects</h3>
+      <p>
+        Ready-to-build student projects with circuit diagrams, source code,
+        wiring instructions, and tested components.
+      </p>
+      <a href="#" style="color:var(--primary);">
+        View student projects →
+      </a>
+    </article>
+
+    <article class="glow-card">
+      <h3>Custom Prototype Development</h3>
+      <p>
+        We design, assemble, and test custom electronics for research projects,
+        final-year students, and startups.
+      </p>
+      <a href="https://wa.me/263777772486?text=I%20need%20a%20custom%20prototype"
+         target="_blank" style="color:var(--primary);">
+         Get a prototype quote →
+      </a>
+    </article>
+
   </div>
 </section>
 
+<!-- 3D PRINTING SECTION -->
 <section class="split">
-  <div class="glow-card" style="height: 300px;display: flex;place-items: center;align-items: center;justify-content: center;">
-      <img style="height: 100%;" src="IMG/product_photo_md.png" alt="" srcset="">
+  <div class="glow-card"
+       style="height:300px;display:flex;align-items:center;justify-content:center;">
+    <img style="height:100%;"
+         src="IMG/product_photo_md.png"
+         alt="3D printed enclosure for electronics projects in Zimbabwe">
   </div>
+
   <div>
-    <h2>3D Printing for Your Projects</h2>
-    <p>We print custom casings, brackets, enclosures and mechanical parts for your electronics builds.</p>
+    <h2>3D Printing Services in Zimbabwe</h2>
+    <p>
+      We provide fast and affordable 3D printing for electronics enclosures,
+      mechanical parts, brackets, and custom housings for student and prototype projects.
+    </p>
+
     <ul style="color:var(--muted);">
-      <li>Custom enclosures</li>
-      <li>Mounts & brackets</li>
-      <li>Prototype housings</li>
+      <li>Custom enclosures for Arduino & ESP32</li>
+      <li>Mounts, brackets, and stands</li>
+      <li>Prototype housings and casings</li>
     </ul>
-    <a class="btn" href="https://wa.me/263777772486?text=I%20need%203D%20printing%20services" target="_blank">Request a Print</a>
+
+    <a class="btn"
+       href="https://wa.me/263777772486?text=I%20need%203D%20printing%20services"
+       target="_blank">
+       Request 3D printing →
+    </a>
   </div>
 </section>
 
+<!-- TRUST SECTION -->
 <section class="services">
-  <h2>Why Students Choose Us</h2>
+  <h2>Why Students Choose JURITRONICS</h2>
+
   <div class="grid-3">
-    <div class="glow-card">Save money by avoiding burnt parts</div>
-    <div class="glow-card">Learn while building real systems</div>
-    <div class="glow-card">Fast turnaround & clear guidance</div>
+    <div class="glow-card">
+      Save money by avoiding burnt components
+    </div>
+
+    <div class="glow-card">
+      Learn while building real working systems
+    </div>
+
+    <div class="glow-card">
+      Fast delivery, clear guidance, tested parts
+    </div>
   </div>
 </section>
 
+<!-- FOOTER CAROUSEL -->
 <div class="footer-strip">
-  <div class="thumb">Project 01</div>
-  <div class="thumb">Project 02</div>
-  <div class="thumb">Project 03</div>
-  <div class="thumb">3D Print 01</div>
-  <div class="thumb">Top Deal</div>
-  <div class="thumb">New Kit</div>
+  <div class="thumb">Student Project</div>
+  <div class="thumb">IoT Prototype</div>
+  <div class="thumb">Smart Irrigation</div>
+  <div class="thumb">3D Printed Enclosure</div>
+  <div class="thumb">Arduino Kit</div>
+  <div class="thumb">ESP32 Build</div>
 </div>
 
 <footer>
   <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;">
+
     <div>
       <strong>JURITRONICS</strong>
-      <p style="color:var(--muted);">Electronics • Prototypes • 3D Printing</p>
-      <p style="color:var(--muted);">Call: 0777772486</p>
+      <p style="color:var(--muted);">
+        Electronics • Prototypes • 3D Printing • Arduino • IoT
+      </p>
+      <p style="color:var(--muted);">
+        Call: 0777772486 | Harare, Zimbabwe (Nationwide Delivery)
+      </p>
     </div>
+
     <div class="socials">
       <a href="https://www.youtube.com/@Juritronics" target="_blank">YouTube</a>
       <a href="#">TikTok</a>
@@ -100,7 +205,29 @@
       <a href="#">Instagram</a>
       <a href="https://wa.me/263777772486" target="_blank">WhatsApp</a>
     </div>
+
   </div>
 </footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "JURITRONICS",
+  "image": "https://juritronics.co.zw/IMG/LG/juritronics.png",
+  "url": "https://juritronics.co.zw/",
+  "telephone": "+263777772486",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Harare",
+    "addressCountry": "ZW"
+  },
+  "sameAs": [
+    "https://www.youtube.com/@Juritronics"
+  ],
+  "description": "Affordable electronics components, Speed Projects, and fast 3D printing services across Zimbabwe."
+}
+</script>
 </body>
+
 </html>

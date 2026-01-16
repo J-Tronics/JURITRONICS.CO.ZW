@@ -3,9 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== STORE SEO ===== -->
+  <title>JURITRONICS Store | Buy Arduino, Sensors & Electronics in Zimbabwe</title>
+
+  <meta name="description"
+    content="Buy affordable Arduino boards, sensors, relays, ESP32, starter kits and electronics components in Zimbabwe. Fast WhatsApp checkout and nationwide delivery." />
+
+  <meta name="keywords"
+    content="buy arduino zimbabwe, electronics store zimbabwe, sensors harare, esp32 zimbabwe, relays zimbabwe, starter kits zimbabwe" />
+
+  <meta name="author" content="JURITRONICS" />
+
+  <!-- Open Graph (WhatsApp / Facebook preview) -->
+  <meta property="og:title" content="JURITRONICS Store – Cheap Reliable Components" />
+  <meta property="og:description"
+    content="Shop Arduino boards, sensors, relays, ESP32 and starter kits in Zimbabwe with fast WhatsApp checkout." />
+  <meta property="og:image" content="https://juritronics.co.zw/IMG/LG/juritronics.png" />
+  <meta property="og:url" content="https://juritronics.co.zw/store.html" />
+  <meta property="og:type" content="website" />
+
   <link rel="stylesheet" href="store-style.css">
-  <title>JURITRONICS Store</title>
 </head>
+
 <body>
 
 <header>
@@ -22,8 +42,10 @@
 </header>
 
 <main>
-  <h1>Store</h1>
-  <p class="muted">Fast, reliable electronics components</p>
+  <h1>JURITRONICS Electronics Store</h1>
+  <p class="muted">
+    Buy Arduino, sensors, relays, ESP32 modules and starter kits in Zimbabwe.
+  </p>
 
   <div class="filters" id="filters"></div>
   <div class="grid" id="products"></div>
@@ -265,6 +287,24 @@ checkout.onclick = () => {
 /* ---------- INIT ---------- */
 render(products);
 updateCart();
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "JURITRONICS Store",
+  "url": "https://juritronics.co.zw/store.html",
+  "image": "https://juritronics.co.zw/IMG/LG/juritronics.png",
+  "telephone": "+263777772486",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Harare",
+    "addressCountry": "ZW"
+  },
+  "description": "Affordable Arduino boards, sensors, relays, ESP32 modules and starter kits with WhatsApp checkout in Zimbabwe."
+}
 </script>
 
 
